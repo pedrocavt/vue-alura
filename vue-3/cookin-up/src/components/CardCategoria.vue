@@ -7,7 +7,8 @@ export default {
     components: {IngredienteSelecionado},
     props: {
         categoria: {type: Object as PropType<ICategoria>, required: true}
-    }
+    },
+    emits: ['adicionarIngrediente']
 }
 </script>
 
@@ -20,7 +21,10 @@ export default {
 
         <ul class="categoria__ingredientes">
             <li v-for="ingrediente in categoria.ingredientes" :key="ingrediente">
-              <IngredienteSelecionado :ingrediente="ingrediente" />
+              <IngredienteSelecionado
+                :ingrediente="ingrediente"
+                @adicionarIngrediente="$emit('adicionarIngrediente', $event)"
+                />
             </li>
         </ul>
     </article>

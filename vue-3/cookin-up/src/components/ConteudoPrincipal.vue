@@ -6,8 +6,13 @@ export default {
   components: { SelecionarIngredientes, SuaLista },
     data() {
         return {
-            ingredientes: ['Alho','Manteiga', 'Oregano', 'Leite', 'Farinha']
+            ingredientes: [] as string[]
         }
+    },
+    methods: {
+      adicionarIngredientes($ingrdiente: string) {
+        this.ingredientes.push($ingrdiente)
+      }
     }
 }
 </script>
@@ -15,7 +20,9 @@ export default {
 <template>
     <main class="conteudo-principal">
       <SuaLista :ingredientes="ingredientes" />
-      <SelecionarIngredientes/>
+      <SelecionarIngredientes
+        @adicionarIngrediente="adicionarIngredientes($event)"
+      />
     </main>
 </template>
 

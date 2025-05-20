@@ -12,7 +12,8 @@ export default {
     },
     async created() {
       this.categorias = await obterCategorias()
-    }
+    },
+    emits: ['adicionarIngrediente']
 }
 </script>
 
@@ -26,7 +27,10 @@ export default {
         
         <ul class="categorias">
             <li v-for="categoria in categorias" :key="categoria.nome">
-              <CardCategoria :categoria="categoria" />
+              <CardCategoria
+                :categoria="categoria"
+                @adicionarIngrediente="$emit('adicionarIngrediente', $event)"
+                />
             </li>
         </ul>
 
