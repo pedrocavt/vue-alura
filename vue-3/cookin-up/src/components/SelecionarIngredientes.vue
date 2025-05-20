@@ -13,7 +13,7 @@ export default {
     async created() {
       this.categorias = await obterCategorias()
     },
-    emits: ['adicionarIngrediente']
+    emits: ['adicionarIngrediente', 'removerIngrediente']
 }
 </script>
 
@@ -30,6 +30,7 @@ export default {
               <CardCategoria
                 :categoria="categoria"
                 @adicionarIngrediente="$emit('adicionarIngrediente', $event)"
+                @removerIngrediente="$emit('removerIngrediente', $event)"
                 />
             </li>
         </ul>

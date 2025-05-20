@@ -12,6 +12,13 @@ export default {
     methods: {
       adicionarIngredientes($ingrdiente: string) {
         this.ingredientes.push($ingrdiente)
+      },
+      removerIngredientes($ingrdiente: string) {
+        const index = this.ingredientes.indexOf($ingrdiente)
+
+        if (index !== -1) {
+          this.ingredientes.splice(index, 1)
+        }
       }
     }
 }
@@ -22,6 +29,7 @@ export default {
       <SuaLista :ingredientes="ingredientes" />
       <SelecionarIngredientes
         @adicionarIngrediente="adicionarIngredientes($event)"
+        @removerIngrediente="removerIngredientes($event)"
       />
     </main>
 </template>

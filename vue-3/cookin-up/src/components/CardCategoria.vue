@@ -8,7 +8,7 @@ export default {
     props: {
         categoria: {type: Object as PropType<ICategoria>, required: true}
     },
-    emits: ['adicionarIngrediente']
+    emits: ['adicionarIngrediente', 'removerIngrediente']
 }
 </script>
 
@@ -24,6 +24,7 @@ export default {
               <IngredienteSelecionado
                 :ingrediente="ingrediente"
                 @adicionarIngrediente="$emit('adicionarIngrediente', $event)"
+                @removerIngrediente="$emit('removerIngrediente', $event)"
                 />
             </li>
         </ul>
