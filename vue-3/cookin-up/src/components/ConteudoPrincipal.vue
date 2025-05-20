@@ -3,7 +3,7 @@ import SelecionarIngredientes from './SelecionarIngredientes.vue'
 import SuaLista from './SuaLista.vue';
 
 export default {
-  components: { SelecionarIngredientes, Tag, SuaLista },
+  components: { SelecionarIngredientes, SuaLista },
     data() {
         return {
             ingredientes: ['Alho','Manteiga', 'Oregano', 'Leite', 'Farinha']
@@ -15,7 +15,6 @@ export default {
 <template>
     <main class="conteudo-principal">
       <SuaLista :ingredientes="ingredientes" />
-
       <SelecionarIngredientes/>
     </main>
 </template>
