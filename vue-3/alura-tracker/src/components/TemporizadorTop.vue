@@ -23,6 +23,7 @@ import CronometroTop from './CronometroTop.vue';
 
 export default defineComponent({
   name: 'TemporizadorTop',
+  emits: ['temporizadorFinalizado'],
   data() {
     return {
       tempoEmSegundos: 0,
@@ -39,7 +40,9 @@ export default defineComponent({
     },
     finalizar() {
         this.cronometroRodando = false;
-        clearInterval(this.cronometro)
+        clearInterval(this.cronometro); 
+        this.$emit('temporizadorFinalizado', this.tempoEmSegundos)
+        this.tempoEmSegundos = 0;
     }
   },
   components: {
