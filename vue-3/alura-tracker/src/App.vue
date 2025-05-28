@@ -5,6 +5,12 @@
     </div>
     <div class="column is-three-quarter">
       <FormularioTarefa/>
+      <div class="lista">
+        <TarefaTop />
+        <TarefaTop />
+        <TarefaTop />
+        <TarefaTop />
+      </div>
     </div>
   </main>
 </template>
@@ -13,15 +19,20 @@
 import { defineComponent } from 'vue';
 import BarraLateral from './components/BarraLateral.vue';
 import FormularioTarefa from './components/FormularioTarefa.vue';
+import TarefaTop from './components/TarefaTop.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
     BarraLateral,
-    FormularioTarefa
+    FormularioTarefa,
+    TarefaTop
   }
 });
 </script>
 
 <style>
+.lista{
+  padding: 1.25rem;
+}
 </style>
